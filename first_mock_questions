@@ -1,0 +1,131 @@
+//  Question 1.Given an array of integers, write a Java program to find and print all the duplicate elements.
+
+package C6135_Mock_Programs;
+
+import java.util.Scanner;
+
+public class FindDuplicate {
+
+	public static void main(String[] args) {
+
+		duplicateElements();
+	}
+
+//	method to find the duplicate elements of the given array
+	private static void duplicateElements() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of the Array");
+		int size = sc.nextInt();
+		int[] arr = new int[size];
+
+		System.out.println("Enter elements in the array =");
+		for (int i = 0; i < size; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		for (int i = 0; i < size; i++) {
+			for (int j = i + 1; j < size; j++) {
+				if (arr[i] == arr[j]) {
+					System.out.println("Duplicate value i=" + arr[j]);
+				}
+			}
+		}
+	}
+
+}
+
+========output of the above code is ================
+Enter the size of the Array
+5
+Enter elements in the array =
+3
+4
+9
+3
+4
+Duplicate value i=3
+Duplicate value i=4
+
+===============================================================================================
+//Question 2. Write a Java program to print a right-angled triangle of stars. The number of rows should be taken as input.
+
+package C6135_Mock_Programs;
+
+import java.util.Scanner;
+
+public class TrianglePattern {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the row size=");
+		int row = sc.nextInt();
+		rightTriangleProg(row);
+
+	}
+
+	private static void rightTriangleProg(int row) {
+		for (int i = 1; i <= row; i++) {
+			for (int j = 1; j <= i; j++) {
+				
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+================output of the above code is ====================
+Enter the row size=
+5
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+
+
+=================================================================================================
+//Question 3 . Write a Java function to check if two strings are anagrams of each other.
+package C6135_Mock_Programs;
+
+import java.util.Arrays;
+
+public class CheckAnagram {
+	public static void main(String[] args) {
+		String str1 = "keep";
+		String str2 = "peek";
+
+		str1 = str1.toLowerCase();
+		str2 = str2.toLowerCase();
+
+// comparing length
+		if (str1.length() == str2.length()) {
+
+// converting strings to char array
+			char[] charArray1 = str1.toCharArray();
+			char[] charArray2 = str2.toCharArray();
+// sort the char array
+			Arrays.sort(charArray1);
+			Arrays.sort(charArray2);
+
+//  Comparing string using equals() method
+			boolean anagranm = Arrays.equals(charArray1, charArray2);
+
+			if (anagranm) {
+				System.out.println(str1 + " and " + str2 + " are anagram");
+			} else {
+				System.out.println(str1 + " and " + str2 + " are not anagram");
+			}
+		}
+		
+//outer else
+		else {
+			System.out.println(str1 + " and " + str2 + " can't be anagram");
+		}
+	}
+}
+
+===========output of the above code=======================
+keep and peek are anagram
